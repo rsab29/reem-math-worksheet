@@ -1,1 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f6b78">
+<title>التمثيل بالأعمدة والخطوط | ريم مبارك آل بَيُّوض</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+<header class="official">
+  <div>المملكة العربية السعودية</div>
+  <div>وزارة التعليم</div>
+  <div>الإدارة العامة للتعليم بمنطقة عسير</div>
+  <div>مدرسة ابتدائية درب العقيدة بمحافظة أحد رفيدة</div>
+  <div class="teacher">المعلمة: <strong>ريم مبارك آل بَيُّوض</strong></div>
+</header>
 
+<section class="hero">
+  <div class="badge">ورقة عمل تفاعلية</div>
+  <h1>التمثيل بالأعمدة والخطوط</h1>
+  <p>أجيبي عن السؤالين ثم تحققي من إجابتكِ لتحصلي على درجتكِ وبطاقة الشكر.</p>
+  <div class="student-fields">
+    <label>اسم الطالبة<input id="studentName" type="text" placeholder="اكتبي اسمك هنا"></label>
+    <label>الصف<input id="studentClass" type="text" placeholder="الصف"></label>
+    <label>التاريخ<input id="studentDate" type="date"></label>
+  </div>
+  <div class="progress-head"><span>التقدم</span><span id="progressText">السؤال ١ من ٢</span></div>
+  <div class="progress"><i id="progressBar"></i></div>
+  <div class="score-pill">الدرجة: <b id="score">٠</b> / ٢</div>
+</section>
+
+<section class="activity active" id="activity1">
+  <div class="section-title"><span class="num">١</span><div><h2>التمثيل بالخطوط</h2><p>توفير سلمى</p></div><span class="points">درجة واحدة</span></div>
+  <div class="instruction">حرّكي النقاط الخمس إلى القيم الصحيحة على الشبكة، ثم اضغطي «وصل النقاط» ثم «تحقق من الإجابة».</div>
+  <div class="data-card">
+    <h3>بيانات توفير سلمى</h3>
+    <table><tr><th>الأسبوع</th><th>١</th><th>٢</th><th>٣</th><th>٤</th><th>٥</th></tr>
+    <tr><th>التوفير الكلي (ريال)</th><td>٥٠</td><td>٥٤</td><td>٧٥</td><td>٩٨</td><td>١٠٠</td></tr></table>
+  </div>
+  <div class="graph-card">
+    <div class="hint">🔴 اسحبي كل نقطة لأعلى أو لأسفل فقط. يمكن السحب باللمس أو بالفأرة.</div>
+    <div class="line-stage" id="lineStage">
+      <img src="IMG_8769.jpeg" alt="صورة السؤال الأول والشبكة">
+      <svg id="lineSvg" preserveAspectRatio="none"></svg>
+      <div class="line-point" data-i="0"></div><div class="line-point" data-i="1"></div>
+      <div class="line-point" data-i="2"></div><div class="line-point" data-i="3"></div><div class="line-point" data-i="4"></div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="connectBtn">وصل النقاط</button>
+    <button class="check" id="checkLine">تحقق من الإجابة</button>
+    <button class="ghost" id="resetLine">إعادة السؤال</button>
+  </div>
+  <div class="feedback" id="lineFeedback"></div>
+  <div class="next-wrap"><button class="next" id="toActivity2" disabled>الانتقال إلى السؤال الثاني ←</button></div>
+</section>
+
+<section class="activity" id="activity2">
+  <div class="section-title"><span class="num">٢</span><div><h2>التمثيل بالأعمدة</h2><p>أنواع الألواح الموجودة في أحد المصانع</p></div><span class="points">درجة واحدة</span></div>
+  <div class="instruction">حرّكي مقبض كل عمود إلى الارتفاع الذي يمثل التكرار في الجدول.</div>
+  <div class="data-card">
+    <h3>بيانات أنواع الألواح</h3>
+    <table><tr><th>النوع</th><th>فولاذ</th><th>خشب</th><th>حديد</th><th>ألمنيوم</th><th>نحاس</th><th>زنك</th></tr>
+    <tr><th>التكرار</th><td>٣٣</td><td>١٧</td><td>٢١</td><td>٨</td><td>٧</td><td>٤</td></tr></table>
+  </div>
+  <div class="graph-card">
+    <div class="hint">🟦 اسحبي المقبض أعلى كل عمود. المقياس من ٠ إلى ٤٠.</div>
+    <div class="bar-stage" id="barStage">
+      <img src="IMG_8768.jpeg" alt="صورة السؤال الثاني والشبكة">
+      <div class="bars-layer" id="barsLayer"></div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="check" id="checkBars">تحقق من الإجابة</button>
+    <button class="ghost" id="resetBars">إعادة السؤال</button>
+  </div>
+  <div class="feedback" id="barFeedback"></div>
+  <div class="next-wrap"><button class="next" id="finishBtn" disabled>إنهاء ورقة العمل ✨</button></div>
+</section>
+
+<section class="result" id="result">
+  <div class="result-card">
+    <div class="result-icon" id="resultIcon">🏆</div>
+    <div class="result-kicker">النتيجة النهائية</div>
+    <h2 id="resultTitle">أحسنتِ يا بطلة!</h2>
+    <div class="big-score"><span id="finalScore">٢</span><small>/ ٢</small></div>
+    <div class="grade" id="grade">ممتاز</div>
+    <p id="resultMessage"></p>
+    <div class="thanks-card">
+      <div class="thanks-title">🎓 بطاقة شكر وتقدير</div>
+      <p>إلى الطالبة: <strong id="cardName">بطلة النشاط</strong></p>
+      <p id="cardText"></p>
+      <div class="teacher-sign">معلمتكِ<br><strong>ريم مبارك آل بَيُّوض</strong></div>
+      <div class="signature-placeholder">ريم مبارك آل بَيُّوض</div>
+    </div>
+    <div class="result-actions">
+      <button class="primary" id="downloadCard">طباعة / حفظ بطاقة الشكر</button>
+      <button class="ghost" id="restart">إعادة النشاط</button>
+    </div>
+  </div>
+</section>
+
+<footer>🌷 بالتوفيق يا بطلة — بالتعلم والمحاولة نصل إلى الإتقان</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
